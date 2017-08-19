@@ -94,9 +94,9 @@ public class Game {
 
         game.sellAllStocks();
         if (turns<300){
-            System.out.println("Month gone, yopu earn: $" + (double)(Math.round(cash - 100)*100)/100);
+            System.out.println("Month gone..\n \n   *****   You earn: $" + (double)(Math.round(cash - 500)*100)/100);
         } else {
-            System.out.println("You abort the game. You earn: $" + (double)(Math.round(cash-100)*100)/100);
+            System.out.println("You abort the game..\n\n    *****    You earn: $" + (double)(Math.round(cash-500)*100)/100);
         }
 
     }
@@ -231,10 +231,12 @@ public class Game {
 
 
     public void sellAllStocks(){
+        int valueTimes = 0;
         for (Map.Entry<Stock, Integer> iterat : myStock.entrySet()){ //loop thru our stock
+            valueTimes = iterat.getValue();
             for (Stock stock1 : marketStock) {//loop for market for check if stock exists
                 if (stock1.getName().equals(iterat.getKey().getName())){ // check sell price
-                    cash += (stock1.getPriceSell()*2); // sell xTimes our stock
+                    cash += (stock1.getPriceSell()*valueTimes); // sell xTimes our stock
                     iterat.setValue(0);
                     myStock.remove(iterat.getKey(), iterat.getValue());
                     break;
