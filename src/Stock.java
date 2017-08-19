@@ -52,12 +52,9 @@ public class Stock {
     }
 
     private String generateName(){
-        String[] slowaKluczowe = {"Tech", "Pol", "Tin", "Logi", "M", "TI", "i", "Wa", "Nasze", "My", "And", "Sob", " ", "Sata", "Gc", "Firm"};
-        String workName = slowaKluczowe[random.nextInt(slowaKluczowe.length-1)];;
-        for (int i = 0; i < random.nextInt(3)+3 ; i++) {
-            workName+=slowaKluczowe[random.nextInt(slowaKluczowe.length-1)];
-        }
-        return  workName;
+        String[] prefix = {"Tech", "Pol", "Tin", "Logi", "M", "TI", "I", "Wa", "Na", "My", "An", "Sob", "Eru&A", "Sata", "Gc", "Fir", "Log", "Master", "Key"};
+        String[] suffix = {"pool", "staj", "wa", "tiv", "saj", "o-Mix", "uje", "truth", "-buy", "gaming", "delicatis", "tech", "lux", "stratos", "ange"};
+        return prefix[random.nextInt(prefix.length-1)] + suffix[random.nextInt(suffix.length-1)];
     }
 
     public void adjustPrice(){
